@@ -29,6 +29,7 @@
     "projects": [
       {
         "title": "Momentum and Missed Tackles (Big Data Bowl 2024)",
+        "icon": "fa-solid fa-football",
         "link": "https://github.com/woodmc10/big_data_bowl_2024",
         "time": {
           "start": "October 2023",
@@ -38,6 +39,7 @@
       },
       {
         "title": "Batter Scouting Scorecard (WiSD 2024 - Finalist)",
+        "icon": "fa-solid fa-baseball-bat-ball",
         "link": "https://github.com/woodmc10/wisd_2024_public",
         "time": {
           "start": "June 2024",

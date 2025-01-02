@@ -127,10 +127,10 @@
 					{% for project in professional.projects %}
 					<div class="timeline-block">
 						<div class="timeline-ico">
-							<i class="fa fa-paper-plane"> <a href="{{ project.link }}" target="_blank"></a> </i>
+							<i class="fa {{ project.icon }}"> <a href="{{ project.link }}" target="_blank"></a> </i>
 						</div>
 						<div class="timeline-header">
-							<h3> <a href="{{ project.link }}" target="_blank"></a>{{ project.title }}</h3>
+							<h3> <a href="{{ project.link }}" target="_blank">{{ project.title }}</a></h3>
 							<p>{{ project.time.start }} - {{ project.time.end }}</p>
 						</div>
 						<div class="timeline-content">
@@ -149,9 +149,9 @@
 	<section id="process">
 		<div class="row button-section">
 			<div class="col-twelve">
-				<a href="{{ professional.github }}" target="_blank" title="Github link"
+				<a href="{{ professional.links.github }}" target="_blank" title="Github link"
 					class="button button-primary">Find me on GitHub</a>
-				<a href="{{ professional.linkedin }}" target="_blank" title="LinkedIn link"
+				<a href="{{ professional.links.linkedin }}" target="_blank" title="LinkedIn link"
 					class="button button-primary">Find me on LinkedIn</a>
 			</div>
 		</div>
