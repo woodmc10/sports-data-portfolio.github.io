@@ -10,7 +10,7 @@
 	<!--- basic page needs
    ================================================== -->
 	<meta charset="utf-8">
-	<title>{{ personal.name }} Projects</title>
+	<title>Zachary Villarreal</title>
 	<meta name="description" content="Portfolio of {{ personal.name }}">
 	<meta name="author" content="{{ personal.name }}">
 
@@ -45,7 +45,8 @@
 					<ul class="main-navigation">
 						<li class="current"><a class="smoothscroll" href="#intro" title="">Home</a></li>
 						<li><a class="smoothscroll" href="#about" title="">About</a></li>
-						<li><a class="smoothscroll" href="#work" title="">Projects</a></li>
+						<li><a class="smoothscroll" href="#work" title="">Work Experience</a></li>
+						<li><a class="smoothscroll" href="#more" title="">More</a></li>
 
 					</ul>
 				</nav>
@@ -86,7 +87,7 @@
 	</section> <!-- /intro -->
 
 
-	<!-- intro section
+	<!-- about section
    ================================================== -->
 	<section id="about">
 
@@ -104,60 +105,7 @@
 				</div>
 
 			</div>
-		</div> <!-- /section me -->
-
-	</section>
-
-	<!-- projects Section
-   ================================================== -->
-   <section id="projects" class="grey-section">
-
-
-		<div class="row resume-timeline">
-
-			<div class="col-twelve resume-header">
-
-				<h2>Projects</h2>
-
-			</div> <!-- /resume-header -->
-
-			<div class="col-twelve">
-
-				<div class="timeline-wrap">
-					{% for project in professional.projects %}
-					<div class="timeline-block">
-						<div class="timeline-ico">
-							<i class="fa fa-paper-plane"> <a href="{{ project.link }}" target="_blank"></a> </i>
-						</div>
-						<div class="timeline-header">
-							<h3> <a href="{{ project.link }}" target="_blank"></a>{{ project.title }}</h3>
-							<p>{{ project.time.start }} - {{ project.time.end }}</p>
-						</div>
-						<div class="timeline-content">
-							<p>{{ project.description }}</p>
-						</div>
-					</div>
-					{% endfor %}
-				</div> <!-- /timeline-wrap -->
-
-			</div> <!-- /col-twelve -->
-
-		</div> <!-- /resume-timeline -->
-
-	</section> <!-- /projects -->
-
-	<section id="process">
-		<div class="row button-section">
-			<div class="col-twelve">
-				<a href="{{ professional.github }}" target="_blank" title="Github link"
-					class="button button-primary">Find me on GitHub</a>
-				<a href="{{ professional.linkedin }}" target="_blank" title="LinkedIn link"
-					class="button button-primary">Find me on LinkedIn</a>
-			</div>
-		</div>
-	</section>
-
-	<section id="about">
+		</div> <!-- /section-intro -->
 
 		<div class="row about-content">
 
@@ -191,12 +139,12 @@
 
 			<div class="col-six tab-full">
 
-				<h3>Top Sports</h3>
+				<h3>Top skills</h3>
 				<ul class="skill-bars">
 					{% for skill_info in professional.top_skills %}
 					<li>
-						<div class="progress percent{{ skill_info.percentage }}"><span>{{ skill_info.info
-								}}</span></div>
+						<div class="progress percent{{ skill_info.percentage }}"><span>{{ skill_info.percentage
+								}}%</span></div>
 						<strong>{{ skill_info.skill }}</strong>
 					</li>
 					{% endfor %}
@@ -206,12 +154,120 @@
 
 		</div>
 
-	</section> <!-- about -->
+		<div class="row button-section">
+			<div class="col-twelve">
+				<a href="{{ professional.github }}" target="_blank" title="Github link"
+					class="button button-primary">Find me on GitHub</a>
+				<a href="{{ professional.linkedin }}" target="_blank" title="LinkedIn link"
+					class="button button-primary">Find me on LinkedIn</a>
+			</div>
+		</div>
 
 	</section> <!-- /process-->
 
 
-	
+	<!-- resume Section
+   ================================================== -->
+	<section id="work" class="grey-section">
+
+
+		<div class="row resume-timeline">
+
+			<div class="col-twelve resume-header">
+
+				<h2>Projects</h2>
+
+			</div> <!-- /resume-header -->
+
+			<div class="col-twelve">
+
+				<div class="timeline-wrap">
+					{% for project in professional.projects %}
+					<div class="timeline-block">
+						<div class="timeline-ico">
+							<i class="fa fa-paper-plane"></i>
+						</div>
+						<div class="timeline-header">
+							<h3> <a href="{{ project.link }}" target="_blank"></a>{{ project.title }}</h3>
+							<p>{{ project.time.start }} - {{ project.time.end }}</p>
+						</div>
+						<div class="timeline-content">
+							<p>{{ project.description }}</p>
+						</div>
+					</div>
+					{% endfor %}
+				</div> <!-- /timeline-wrap -->
+
+			</div> <!-- /col-twelve -->
+
+		</div> <!-- /resume-timeline -->
+
+		<div class="row resume-timeline">
+
+			<div class="col-twelve resume-header">
+
+				<h2>Professional Experience</h2>
+
+			</div> <!-- /resume-header -->
+
+			<div class="col-twelve">
+
+				<div class="timeline-wrap">
+					{% for exp in professional.experience %}
+					<div class="timeline-block">
+						<div class="timeline-ico">
+							<i class="fa fa-briefcase"></i>
+						</div>
+						<div class="timeline-header">
+							<h3> {{ exp.organization }} | {{ exp.title }}</h3>
+							<p> {{ exp.time.start }} - {{ exp.time.end }} </p>
+						</div>
+						<div class="timeline-content">
+							<p>{{ exp.description }}</p>
+						</div>
+					</div>
+					{% endfor %}
+				</div> <!-- /timeline-wrap -->
+
+			</div> <!-- /col-twelve -->
+
+		</div> <!-- /resume-timeline -->
+
+		<div class="row resume-timeline">
+
+			<div class="col-twelve resume-header">
+
+				<h2>Diploma and Certificates</h2>
+
+			</div> <!-- /resume-header -->
+
+			<div class="col-twelve">
+
+				<div class="timeline-wrap">
+					{% for cert in professional.certificates %}
+					<div class="timeline-block">
+
+						<div class="timeline-ico">
+							<i class="fa fa-graduation-cap"></i>
+						</div>
+
+						<div class="timeline-header">
+							<h3> {{ cert.title }} | {{ cert.organization }} </h3>
+							<p>{{ cert.time.start }} - {{ cert.time.end }}</p>
+						</div>
+
+						<div class="timeline-content">
+							<p>{{ cert.description }}</p>
+						</div>
+
+					</div> <!-- /timeline-block -->
+					{% endfor %}
+				</div>
+			</div> <!-- /col-twelve -->
+
+		</div> <!-- /resume-timeline -->
+
+	</section> <!-- /features -->
 
 
 	<!-- Portfolio Section
@@ -225,6 +281,82 @@
 
 	<!-- services Section
    ================================================== -->
+	<section id="more">
+
+		<div class="overlay"></div>
+
+		<div class="row section-intro">
+			<div class="col-twelve">
+
+				<h5>More</h5>
+
+
+
+
+			</div>
+		</div> <!-- /section-intro -->
+
+		<div class="row services-content">
+
+			<div id="owl-slider" class="owl-carousel services-list">
+
+				<div class="service">
+
+					<span class="icon"><i class="icon-window"></i></span>
+
+					<div class="service-content">
+
+						<h3>Familiar libraries and technologies</h3>
+
+						<p class="desc"> {{ professional.techs }}
+						</p>
+
+					</div>
+
+				</div> <!-- /service -->
+				<div class="service">
+
+					<span class="icon"><i class="icon-earth"></i></span>
+
+					<div class="service-content">
+
+						<h3>Languages</h3>
+
+						<ul class="skill-bars">
+							{% for lang in professional.languages %}
+							<li>
+								<div class="progress percent{{ lang.percentage }}"><span>{{ lang.percentage }}%</span>
+								</div>
+								<strong>{{ lang.lang }}</strong>
+							</li>
+							{% endfor %}
+						</ul>
+
+					</div>
+				</div> <!-- /services-list -->
+
+				<div class="service">
+
+					<span class="icon"><i class="icon-chat"></i></span>
+
+					<div class="service-content">
+
+						<h3>Volunterring Experience</h3>
+
+						<ul>
+							{% for vol in professional.volunteering %}
+							<li>
+								{{ vol }}
+							</li>
+							{% endfor %}
+						</ul>
+
+					</div>
+
+				</div> <!-- /service -->
+			</div> <!-- /services-content -->
+
+	</section> <!-- /services -->
 
 
 	<!-- stats Section
