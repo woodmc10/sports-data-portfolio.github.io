@@ -46,7 +46,7 @@
 					<ul class="main-navigation">
 						<li class="current"><a class="smoothscroll" href="#intro" title="">Home</a></li>
 						<li><a class="smoothscroll" href="#about" title="">About</a></li>
-						<li><a class="smoothscroll" href="#work" title="">Projects</a></li>
+						<li><a class="smoothscroll" href="#projects" title="">Projects</a></li>
 
 					</ul>
 				</nav>
@@ -74,7 +74,7 @@
 						<span> {{ professional.title_2 }}</span>
 					</p>
 
-					<a class="button stroke smoothscroll" href="#about" title=""> {{ page_elements.navigation_button
+					<a class="button stroke smoothscroll" href="#projects" title=""> {{ page_elements.navigation_button
 						}}</a>
 
 				</div>
@@ -252,7 +252,9 @@
 			<div class="col-four tab-full">
 
 				<div class="icon">
-					<i class="fa fa-linkedin""></i>
+					<a href=" {{ professional.links.linkedin }}" target="_blank">
+						<i class="fa fa-linkedin"></i>
+					</a>
 				</div>
 
 				<h5>Find me on LinkedIn</h5>
@@ -266,7 +268,9 @@
 				<div class="col-four tab-full collapse">
 
 					<div class="icon">
-						<i class="fa fa-envelope-o"></i>
+						<a href="mailto:{{ personal.email }}" target="_blank">
+							<i class="fa fa-envelope-o"></i>
+						</a>
 					</div>
 
 					<h5>Send me an email</h5>
